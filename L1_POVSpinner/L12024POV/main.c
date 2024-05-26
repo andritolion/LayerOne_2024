@@ -9,6 +9,10 @@
 #define GREET_TEXT  ( "WELCOME TO LAYERONE 2024  \0")
 #endif
 
+#ifndef NAME_TEXT
+#define NAME_TEXT  ( "ANDRITOLION \0")
+#endif
+
 #include <avr/io.h>
 #include <avr/sleep.h>
 #include <util/delay.h>
@@ -763,18 +767,21 @@ void lightLedsInSequence() {
 		_delay_adaptive(1);
 		_delay_adaptive(1);
 		_delay_adaptive(1);
-		drawNumber( delayAdj );
+		//drawNumber( delayAdj );
 		break;
 		
 		case 1:
-		sineWaveEffect(0);
+		//sineWaveEffect(0);
+			drawString( GREET_TEXT );
+			customDelayMicroseconds(	delayAdj * 100 );
+			break;
 		break;
 		
 		case 2:
 		//              THANK YOU 0123456789
 		{
 
-			drawString( GREET_TEXT );
+			drawString( NAME_TEXT );
 			customDelayMicroseconds(	delayAdj * 100 );
 			break;
 		}
